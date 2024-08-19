@@ -9,11 +9,22 @@ git clone https://github.com/kemalmao19/canvas-sketch-ts.git
 cd canvas-sketch-ts
 ```
 
-### install
+### Install Dependency
 ```bash
 npm install
 ```
-### running compiled project
+
+### Compile 
+build:
+```bash
+npx tsc
+```
+or watch mode:
+```bash
+npx tsc -w
+```
+
+### Running compiled project
 ```bash
 npx canvas-sketch-cli ts-built/[directory-project] --output=[directory-output]
 ```
