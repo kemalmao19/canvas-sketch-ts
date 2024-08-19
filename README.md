@@ -19,6 +19,6 @@ npx canvas-sketch-cli ts-built/[directory-project] --output=[directory-output]
 ```
 
 ## Thanks to
-[Matt DesLauriers] (https://github.com/mattdesl) for his amazing project
+[Matt DesLauriers](https://github.com/mattdesl) for his amazing project
 
 
