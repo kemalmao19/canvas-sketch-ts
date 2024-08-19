@@ -13,12 +13,12 @@ type Canvas = {
   height: number;
 };
 
-const sketch: () => void = () => {
+const sketch = () => {
   const [width, height] = settings.dimensions;
 
   const numParticles = 40;
   const particles = Array.from({ length: numParticles }, () =>
-    Particle(width, height)
+    Particle(width, height),
   );
 
   return ({ context, width, height }: Canvas) => {

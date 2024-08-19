@@ -1,24 +1,11 @@
-type Vector = {
-  x: number,
-  y: number
-}
-
-type Particle = {
-  position: Vector,
-  velocity: Vector,
-  rad: number,
-  width: number,
-  height: number
-}
-
 // Vector :: (x, y) -> Vector
-const Vector = (x:number,y:number) => <Vector>({ x, y })
+const Vector = (x: number, y: number) => <Vector>{ x, y };
 
 // Particle :: (width, height) -> Particle
-const Particle = (width: number, height: number) => {
+const Particle: ParticleFunc = (width, height) => {
   const position = Vector(Math.random() * width, Math.random() * height);
   const velocity = Vector(Math.random() * 2 - 1, Math.random() * 2 - 1);
-  return <Particle>{
+  return {
     position: position,
     velocity: velocity,
     rad: Math.random() * 15 + 5,
@@ -28,10 +15,10 @@ const Particle = (width: number, height: number) => {
 };
 
 // update :: Particle -> Particle
-const update = (particle: Particle) => {
+const update: UpdateFunc = (particle) => {
   const newPosition = Vector(
     (particle.position.x += particle.velocity.x),
-    (particle.position.y += particle.velocity.y)
+    (particle.position.y += particle.velocity.y),
   );
 
   const newVelocity = Vector(
@@ -40,7 +27,7 @@ const update = (particle: Particle) => {
       : particle.velocity.x,
     newPosition.y <= 0 || newPosition.y >= particle.height
       ? (particle.velocity.y *= -1)
-      : particle.velocity.y
+      : particle.velocity.y,
   );
 
   return {
@@ -51,9 +38,9 @@ const update = (particle: Particle) => {
 };
 
 // draw :: Particle -> (context) -> ()
-const draw =
-  ({ position, rad }: Particle) =>
-  (context:CanvasRenderingContext2D) => {
+const draw: DrawFunc =
+  ({ position, rad }) =>
+  (context) => {
     context.save();
     context.beginPath();
     context.lineWidth = 4;

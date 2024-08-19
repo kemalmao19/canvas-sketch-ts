@@ -10,7 +10,7 @@ type Canvas = {
   height: number;
 };
 
-const sketch: () => void = () => {
+const sketch = () => {
   return ({ context, width, height }: Canvas) => {
     context.fillStyle = "white";
     context.fillRect(0, 0, width, height);
