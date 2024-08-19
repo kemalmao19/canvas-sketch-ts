@@ -15,10 +15,8 @@ type Canvas = {
 
 const sketch: () => void = () => {
   const [width, height] = settings.dimensions;
-  // initial particles \\
-  // numParticles :: Int
+
   const numParticles = 40;
-  // particles :: Particle -> [Particle]
   const particles = Array.from({ length: numParticles }, () =>
     Particle(width, height)
   );
@@ -27,10 +25,8 @@ const sketch: () => void = () => {
     context.fillStyle = "white";
     context.fillRect(0, 0, width, height);
 
-    // draw lines \\
     makeLine(particles)(context);
 
-    // update particles \\
     particles.map(update).map((particle) => draw(particle)(context));
   };
 };
